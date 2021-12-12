@@ -1,0 +1,17 @@
+<% provide(:title, "Forgot password") %>
+<h1>Forgot password</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with(url: password_resets_path, scope: :password_reset,
+                    local: true) do |f| %>
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+<!--form_withメソッドで、@password_resetではなく:password_resetを使っている理由-->
+  <!--→シンボルを使ってフォームをするとRailsが自動で送信先に値を割り当ててくれるから-->
